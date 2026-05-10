@@ -9,3 +9,4 @@ venv/
 # Pliki w docs/ (instrukcje, PDF-y itp.) — zachowaj tylko README
 docs/*
 !docs/README.md
+/.claude/
