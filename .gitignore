@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+.env
+*.log
+
+# Pliki w docs/ (instrukcje, PDF-y itp.) — zachowaj tylko README
+docs/*
+!docs/README.md

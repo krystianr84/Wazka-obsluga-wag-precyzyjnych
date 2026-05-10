@@ -1,0 +1,11 @@
+[
+  {
+    "name": "1",
+    "protocol_name": "Sartorius (SBI)",
+    "port": "COM5",
+    "baud_rate": 9600,
+    "parity": "Parzysta (E)",
+    "data_bits": "7",
+    "stop_bits": "1"
+  }
+]
