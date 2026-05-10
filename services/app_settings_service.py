@@ -1,7 +1,15 @@
 import json
+import sys
 from pathlib import Path
 
-_SETTINGS_FILE = Path(__file__).parent.parent / "app_settings.json"
+
+def _get_settings_path() -> Path:
+    if getattr(sys, "frozen", False):
+        return Path(sys.executable).parent / "app_settings.json"
+    return Path(__file__).parent.parent / "app_settings.json"
+
+
+_SETTINGS_FILE = _get_settings_path()
 
 
 DEFAULT_INTERVAL_MS = 1000

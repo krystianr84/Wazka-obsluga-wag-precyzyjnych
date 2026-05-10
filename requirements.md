@@ -1,7 +1,7 @@
 # Ważka — dokument kontynuacji projektu
 
 > Plik opisuje kompletny aktualny stan projektu, podjęte decyzje projektowe oraz wskazówki
-> niezbędne do dalszego rozwijania aplikacji. Wersja: **0.204.0** (2026-05-10).
+> niezbędne do dalszego rozwijania aplikacji. Wersja: **0.205.0** (2026-05-10).
 
 ---
 
@@ -458,7 +458,7 @@ Pole i przycisk blokują się przy braku połączenia.
 ### `ui/about_dialog.py` — AboutDialog(QDialog)
 
 Modalne, rozmiar stały 450×450 px.  
-Zawiera: logo z `img/festisite_nasa-2.PNG` (120×120 px), nazwa "Ważka", wersja "0.204.0",  
+Zawiera: logo z `img/festisite_nasa-2.PNG` (120×120 px), nazwa "Ważka", wersja "0.205.0",  
 autor "Krystian Rutkowski", opis, lista protokołów, informacja o licencji MIT.  
 Kolory tekstu pobierane z `ThemeManager.instance().theme` przy tworzeniu — reaguje na motyw bez podłączania się do `theme_changed` (dialog jest zawsze tworzony od nowa).
 
@@ -640,7 +640,13 @@ Wynik: `dist/Wazka.app` — bundle aplikacji macOS. Budowanie musi być wykonane
 
 ## 15. Changelog
 
-### 0.204.0 — 2026-05-10 *(bieżąca)*
+### 0.205.0 — 2026-05-10 *(bieżąca)*
+
+- **Naprawa persystencji ustawień w exe (PyInstaller)** — `AppSettingsService` i `PresetService` używały `Path(__file__)` do wyznaczenia ścieżki do plików JSON, co w spakowanym pliku wykonywalnym wskazywało na tymczasowy katalog ekstrakcji (`_MEIxxxxxx`). Pliki były kasowane przy zamknięciu aplikacji. Poprawka: gdy `sys.frozen` jest ustawiony (PyInstaller), ścieżka jest wyznaczana względem `sys.executable` (katalog exe), co zapewnia trwały zapis między uruchomieniami.
+
+---
+
+### 0.204.0 — 2026-05-10
 
 - **Rozszerzone statystyki sesji** — dodano średnią (`Śr`) i odchylenie standardowe (`σ`) obok istniejących min/max. Algorytm Welford'a zapewnia stabilność numeryczną.
 - Sygnał `session_stats_updated`: `(float, float, str)` → `(float, float, float, float, str)` — min, max, mean, stddev, unit.

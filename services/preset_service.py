@@ -1,10 +1,18 @@
 import dataclasses
 import json
+import sys
 from pathlib import Path
 
 from models.scale_preset import ScalePreset
 
-_PRESETS_FILE = Path(__file__).parent.parent / "presets.json"
+
+def _get_presets_path() -> Path:
+    if getattr(sys, "frozen", False):
+        return Path(sys.executable).parent / "presets.json"
+    return Path(__file__).parent.parent / "presets.json"
+
+
+_PRESETS_FILE = _get_presets_path()
 
 
 class PresetService:

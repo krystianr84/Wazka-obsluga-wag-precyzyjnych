@@ -48,7 +48,7 @@ class AboutDialog(QDialog):
         name.setFont(font)
         name.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        version = QLabel("Wersja 0.204.0")
+        version = QLabel("Wersja 0.205.0")
         version.setAlignment(Qt.AlignmentFlag.AlignCenter)
         version.setStyleSheet(f"color: {t.text_muted}; font-size: 11px;")
 
